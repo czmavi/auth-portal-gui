@@ -1,0 +1,34 @@
+<div class="col-12">
+    <div class="card">
+        <h5>Users</h5>
+
+        <p-table [value]="users" [rowHover]="true" [loading]="loading" [scrollable]="true" scrollHeight="400px" styleClass="mt-3">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="min-width:200px">First name</th>
+                    <th style="min-width:200px">Last Name</th>
+                    <th style="min-width:200px">Email</th>
+                    <th style="min-width:200px">Roles</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr [routerLink]="user._id">
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.roles.join(', ')}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">No users found.</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="loadingbody">
+                <tr>
+                    <td colspan="8">Loading user data</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

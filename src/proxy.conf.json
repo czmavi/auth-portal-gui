@@ -1,0 +1,12 @@
+{
+    "/api": {
+        "xtarget": "https://czmavi-auth-portal-74.deno.dev",
+        "target": "http://localhost:3000",
+        "secure": false,
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+    <div class="col-12 md:col-6">
+        <div class="card p-fluid">
+            <h5>Edit Test Account</h5>
+            <div class="field grid">
+                <label htmlFor="firstName" class="col-12 mb-2 md:col-2 md:mb-0">First name</label>
+                <div class="col-12 md:col-10">
+                    <input pInputText formControlName="firstName" id="firstName" type="text" />
+                </div>
+            </div>
+            <div class="field grid">
+                <label htmlFor="lastName" class="col-12 mb-2 md:col-2 md:mb-0">Last name</label>
+                <div class="col-12 md:col-10">
+                    <input pInputText formControlName="lastName" id="lastName" type="text" />
+                </div>
+            </div>
+            <div class="field grid">
+                <label htmlFor="email" class="col-12 mb-2 md:col-2 md:mb-0">Email</label>
+                <div class="col-12 md:col-10">
+                    <input pInputText id="email" [disabled]="true" [placeholder]="form.controls.email.value" type="text" />
+                </div>
+            </div>
+
+            <div class="field grid">
+                <label htmlFor="description" class="col-12 mb-2 md:col-2 md:mb-0">Description</label>
+                <div class="col-12 md:col-10">
+                    <input pInputText id="description" formControlName="description" type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="flex flex-wrap gap-2">
+				<button pButton pRipple [disabled]="form.pristine || form.invalid" icon="pi pi-save" label="Save" (click)="save()"></button>
+                <button pButton pRipple icon="pi pi-trash" label="Delete" severity="danger" [outlined]="true" (click)="deleteTestAccount($event)"></button>
+			</div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+    <div class="col-12 md:col-6">
+        <div class="card p-fluid">
+            <h5>Create Api Key</h5>
+            <div class="field grid">
+                <label htmlFor="description" class="col-12 mb-2 md:col-2 md:mb-0">Description</label>
+                <div class="col-12 md:col-10">
+                    <input pInputText formControlName="description" id="description" type="text" />
+                </div>
+            </div>
+            <div class="field grid">
+                <label htmlFor="secret" class="col-12 mb-2 md:col-2 md:mb-0">Secret</label>
+                <div class="col-12 md:col-10">
+                    <input pInputText formControlName="secret" id="secret" type="text" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="flex flex-wrap gap-2">
+				<button pButton pRipple [disabled]="form.pristine || form.invalid" icon="pi pi-save" label="Create" (click)="save()"></button>
+			</div>
+        </div>
+    </div>
+</form>

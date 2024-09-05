@@ -1,0 +1,46 @@
+<div class="col-12">
+    <div class="card">
+        <h5>Test Accounts</h5>
+
+        <p-toolbar styleClass="mb-4">
+            <ng-template pTemplate="left">
+                <div class="my-2">
+                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" routerLink="new"></button>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="right">
+            </ng-template>
+        </p-toolbar>
+
+
+        <p-table [value]="testAccounts" [rowHover]="true" [loading]="loading" [scrollable]="true" scrollHeight="400px" styleClass="mt-3">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="min-width:200px">First name</th>
+                    <th style="min-width:200px">Last Name</th>
+                    <th style="min-width:200px">Email</th>
+                    <th style="min-width:200px">Description</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-testAccount>
+                <tr [routerLink]="testAccount._id">
+                    <td>{{testAccount.firstName}}</td>
+                    <td>{{testAccount.lastName}}</td>
+                    <td>{{testAccount.email}}</td>
+                    <td>{{testAccount.description}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">No test accounts found.</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="loadingbody">
+                <tr>
+                    <td colspan="8">Loading test account data</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
